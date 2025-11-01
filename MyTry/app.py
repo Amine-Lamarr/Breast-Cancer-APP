@@ -6,7 +6,7 @@ import numpy as np
 from streamlit.components.v1 import html
 
 def GetCleanData():
-    data = pd.read_csv("data.csv", on_bad_lines=True)
+    data = pd.read_csv("data.csv", on_bad_lines='skip')
     # dropping useless columns
     data.drop(columns=["Unnamed: 32", "id"], axis=1, inplace=True)
     data['diagnosis'] = data['diagnosis'].map({"M": 1, "B": 0})
@@ -180,4 +180,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
