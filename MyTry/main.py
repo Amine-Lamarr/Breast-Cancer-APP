@@ -53,7 +53,7 @@ def TestModel(model, x_test, y_test, show_scatter:bool, show_cm:bool = False):
         plt.show()
 
 def GetCleanData():
-    data = pd.read_csv("data.csv",error_bad_lines=False)
+    data = pd.read_csv("data.csv", on_bad_lines=True)
     # dropping useless columns
     data.drop(columns=["Unnamed: 32", "id"], axis=1, inplace=True)
     data['diagnosis'] = data['diagnosis'].map({"M": 1, "B": 0})
@@ -72,5 +72,6 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
