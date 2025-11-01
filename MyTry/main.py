@@ -52,16 +52,9 @@ def TestModel(model, x_test, y_test, show_scatter:bool, show_cm:bool = False):
         plt.legend()
         plt.show()
 
-# def GetCleanData():
-#     data = pd.read_csv("data.csv")
-#     # dropping useless columns
-#     data.drop(columns=["Unnamed: 32", "id"], axis=1, inplace=True)
-#     data['diagnosis'] = data['diagnosis'].map({"M": 1, "B": 0})
-#     return data
 def GetCleanData():
-    current_dir = os.path.dirname(__file__)
-    file_path = os.path.join(current_dir, "data.csv")
-    data = pd.read_csv(file_path)
+    data = pd.read_csv("data.csv")
+    # dropping useless columns
     data.drop(columns=["Unnamed: 32", "id"], axis=1, inplace=True)
     data['diagnosis'] = data['diagnosis'].map({"M": 1, "B": 0})
     return data
@@ -79,3 +72,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
